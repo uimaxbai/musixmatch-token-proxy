@@ -51,7 +51,10 @@ export async function GET() {
     // data = data.message.body;
 
     // return new Response(String(data));
-    return json(data);
+    return json(data, {
+        // set a header on the response
+        headers: { 'Access-Control-Allow-Origin': 'https://lyrics.binimum.org' }
+    });
 }
 
 /** @type {import('../$types').RequestHandler} */

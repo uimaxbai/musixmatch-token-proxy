@@ -58,7 +58,10 @@ export async function GET({ url }) {
             if (data?.message?.body?.subtitle?.subtitle_body) {
                 // Add type indicator
                 data.type = 'subtitle';
-                return json(data);
+                return json(data, {
+                    // set a header on the response
+                    headers: { 'Access-Control-Allow-Origin': 'https://lyrics.binimum.org' }
+                });
             } else {
                  error(500, `Musixmatch subtitle servers returned OK but unexpected body for track ID ${name}`);
             }

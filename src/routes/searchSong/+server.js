@@ -16,5 +16,8 @@ export async function GET({ url }) {
         }
     });
     var data = await response.json();
-    return json(data);
+    return json(data, {
+        // set a header on the response
+        headers: { 'Access-Control-Allow-Origin': 'https://lyrics.binimum.org' }
+    });
 }
